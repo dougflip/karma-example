@@ -17,7 +17,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node_modules\\.bin\\karma start tests\\unit\\karma.conf.js"  
+    "test": "node_modules\\.bin\\karma start"
   },
   "author": "dougflip",
   "license": "MIT"
