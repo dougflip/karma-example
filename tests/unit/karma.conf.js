@@ -3,22 +3,24 @@ module.exports = function(config) {
     // base path, that will be used to resolve files
     basePath: '../..',
 
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'requirejs'],
 
-    // list of files / patterns to load in the browser
+    // list of files/patterns to load in the browser
+    // note this time we are flagging `included: false`
+    // This tells karma to make them available but to NOT include a script tag
     files: [
-      'scripts/*.js',
-      'tests/unit/*.js'
+      { pattern: 'scripts/**/*.js', included: false },
+      { pattern: 'tests/unit/**/*spec.js', included: false },
+
+      // the only file we want to produce a script tag!
+      'tests/unit/test-main.js'
     ],
 
-    // lots of options here - I use PhantomJS locally
+    // Again, lots of options here - I use PhantomJS locally
     browsers: ['PhantomJS'],
 
     reporters: ['progress'],
 
-    // I am a fan of singleRun locally
-    // This lets you use `karma start` to get a single run
-    // There are options for watch and what not though if that is your thing
     singleRun: true
   })
 }
